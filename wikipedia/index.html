@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>위키백과 모두의 백과사전</title>
+        <!-- reset css -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/ress/dist/ress.min.css"
+        />
+        <style>
+            body {
+                margin: 0;
+                font-family: "Noto Sans KR", sans-serif;
+            }
+            .display-flex-row {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            .display-flex-column {
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* root 스타일 */
+            body {
+            }
+            /* 헤더 스타일 */
+            .header {
+                justify-content: space-between;
+                padding: 10px 40px;
+                /* border-bottom: 1px solid #ccc; */
+                background-color: #fff;
+            }
+            /* 왼쪽 영역 (로고와 타이틀) */
+            .menu1 {
+                gap: 16px;
+            }
+            .title {
+                gap: 10px;
+                align-items: center;
+            }
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .title-text span:first-child {
+                font-weight: bold;
+                font-size: 20px;
+            }
+            .title-text span:last-child {
+                font-size: 12px;
+                color: #555;
+            }
+
+            /* 가운데 영역 */
+            .search {
+                border: 1px solid grey;
+                border-radius: 3px;
+                overflow: hidden;
+                margin: 0 40px; /* 좌우 여백으로 가운데 배치 */
+            }
+            .search input[type="text"] {
+                padding: 6px 10px;
+                border: none;
+                outline: none;
+                width: 400px;
+            }
+            .search input[type="submit"] {
+                background-color: #f8f9fa;
+                border: none;
+                border-left: 1px solid grey;
+                padding: 6px 12px;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+            /* menu2 - 오른쪽 메뉴 */
+            .menu2 {
+                gap: 15px;
+            }
+            nav ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                gap: 10px;
+            }
+            nav ul li a {
+                font-size: 14px;
+                text-decoration: none;
+            }
+            nav ul li a:hover {
+                text-decoration: underline;
+            }
+            nav img {
+                width: 16px;
+                cursor: pointer;
+            }
+
+            /* 중앙부 */
+            .middle {
+                display: flex;
+                flex-direction: row;
+            }
+
+            /* main content */
+            main {
+                width: 700px;
+                margin: 10px auto;
+                gap: 16px;
+            }
+            main .main-title {
+                border-bottom: 1px solid darkgray;
+            }
+            main .main-title p {
+                font-size: 2rem;
+            }
+            main .main-menu {
+                justify-content: space-between;
+                padding-bottom: 8px;
+                border-bottom: 1px solid silver;
+            }
+            main .main-menu .first {
+                gap: 12px;
+            }
+            main .main-menu ul {
+                list-style-type: none;
+                font-size: 0.9rem;
+            }
+            main .main-menu ul a {
+                text-decoration: none;
+            }
+            main .main-menu .end {
+                gap: 12px;
+            }
+
+            /* 본문 */
+            main .main-content p {
+                font-size: 0.9rem;
+            }
+
+            /* 좌측 사이드바 */
+            .middle aside {
+                position: sticky;
+                top: 0;
+                width: 180px;
+                padding-top: 64px;
+                margin: 0 auto;
+                height: 100%;
+            }
+            .middle aside ul {
+                list-style-type: none;
+                font-size: 0.9rem;
+            }
+            .middle aside .sidebar-header {
+                display: flex;
+                gap: 1rem;
+                border-bottom: 1px solid lightgray;
+                padding-bottom: 8px;
+            }
+            .middle aside .sidebar-selection {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 0;
+            }
+            .middle aside .sidebar-selection a {
+                text-decoration: none;
+            }
+            .middle aside .sidebar-selection a strong {
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root">
+            <header class="display-flex-row header">
+                <div class="display-flex-row menu1">
+                    <img src="assets/images/menu.svg" alt="" />
+                    <div class="display-flex-row title">
+                        <a href=""
+                            ><img
+                                src="assets/images/wikipedia.png"
+                                alt=""
+                                class="logo"
+                        /></a>
+                        <div class="display-flex-column title-text">
+                            <span>위키백과</span>
+                            <span>우리 모두의 백과사전</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="display-flex-row search">
+                    <input type="text" placeholder="위키백과 검색" />
+                    <input type="submit" value="검색" />
+                </div>
+
+                <div class="display-flex-row menu2">
+                    <nav class="display-flex-row">
+                        <ul class="display-flex-row">
+                            <li><a href="">기부</a></li>
+                            <li><a href="">계정 만들기</a></li>
+                            <li><a href="">로그인</a></li>
+                        </ul>
+                    </nav>
+                    <img src="assets/images/ellipsis.svg" alt="" />
+                </div>
+            </header>
+            <div class="middle">
+                <aside>
+                    <ul class="sidebar-header">
+                        <li><strong>목차</strong></li>
+                        <li>숨기기</li>
+                    </ul>
+                    <ul class="sidebar-selection">
+                        <li>
+                            <a href=""><strong>처음 위치</strong></a>
+                        </li>
+                        <li><a href="">분류의 역사</a></li>
+                        <li><a href="">특징</a></li>
+                        <li><a href="">하위 분류</a></li>
+                        <li><a href="">계통 분류</a></li>
+                        <li><a href="">같이 보기</a></li>
+                        <li><a href="">각주</a></li>
+                        <li><a href="">외부 링크</a></li>
+                    </ul>
+                </aside>
+                <main class="display-flex-column">
+                    <div class="main-title">
+                        <p>동물</p>
+                    </div>
+                    <div class="display-flex-row main-menu">
+                        <ul class="display-flex-row first">
+                            <li><a href="">문서</a></li>
+                            <li><a href="">토론</a></li>
+                        </ul>
+                        <ul class="display-flex-row end">
+                            <li><a href="">읽기</a></li>
+                            <li>
+                                <a href=""><strong>편집</strong></a>
+                            </li>
+                            <li><a href="">역사 보기</a></li>
+                            <li><a href="">도구</a></li>
+                        </ul>
+                    </div>
+                    <div class="main-content">
+                        <p>위키백과, 우리 모두의 백과사전</p>
+                        <br />
+                        <section>
+                            <p>
+                                <strong>동물(動物)</strong>은 엽록소를 갖지 않고
+                                세포벽을 갖지 않으며 몸속에 여러 기관이 있는
+                                생물 중 다세포인 것을 말한다. 일반적으로 운동
+                                능력과 감각을 가지고 있으며, 동시에
+                                진핵생물이기도 하다. 일반적으로 ‘동물’이라고
+                                하는 말은 특히 일상어의 수준에서는 인간동물을
+                                포함하지 않는 ‘비인간동물(짐승)’의 의미로 많이
+                                사용된다. 그러나 이것은 어디까지나 ‘동물’이라고
+                                하는 단어의 좁은 의미의 뜻일 뿐이며, 인간도
+                                생물학적으로 동물이다.
+                            </p>
+                            <br />
+                            <p>
+                                동물(動物)은 엽록소를 갖지 않고 세포벽을 갖지
+                                않으며 몸속에 여러 기관이 있는 생물 중 다세포인
+                                것을 말한다. 일반적으로 운동 능력과 감각을
+                                가지고 있으며, 동시에 진핵생물이기도 하다.
+                                일반적으로 ‘동물’이라고 하는 말은 특히 일상어의
+                                수준에서는 인간동물을 포함하지 않는
+                                ‘비인간동물(짐승)’의 의미로 많이 사용된다.
+                                그러나 이것은 어디까지나 ‘동물’이라고 하는
+                                단어의 좁은 의미의 뜻일 뿐이며, 인간도
+                                생물학적으로 동물이다.
+                            </p>
+                            <br />
+                            <p>
+                                대부분의 생존하는 동물 종은 양측 대칭 신체
+                                계획을 가지고 있는 매우 증식적인 계통군인
+                                좌우대칭동물(Infrakingdom Bilateria)에 속한다.
+                                대다수는 절지동물, 연체동물, 편형동물, 환형동물
+                                및 선충류와 같은 유기체를 포함하는 원구동물,
+                                그리고 극피동물, 반척동물, 척색동물을 포함하는
+                                후구동물(후자에는 척추동물이 포함됨)이 있다.
+                                단순한 진무체강형동물(Xenacoelomorpha)은
+                                좌우대칭동물 내에서 불확실한 위치를 가지고 있다.
+                            </p>
+                            <br />
+                            <p>
+                                동물은 극저온 시대 후기에 처음으로 화석 기록에
+                                나타나며 이후 에디아카라기에 다양해졌다. 동물에
+                                대한 초기 증거는 여전히 논란의 여지가 있다.
+                                스펀지 같은 유기체 오타비아(Otavia)의 연대는
+                                신원생대가 시작되는 토노스기(Tonian period)로
+                                거슬러 올라간다. 그러나 동물로서의 정체성에
+                                대해서는 논란이 많다. 거의 모든 현대 동물문은 약
+                                5억 3900만년 전(Mya)에 시작된 캄브리아기 폭발
+                                동안 해양종으로 화석 기록에 명확하게
+                                확립되었으며, 대부분의 강은 오르도비스기 방사선
+                                4억 8540만년 동안에 확립되었다. 모든 살아있는
+                                동물에 공통적으로 존재하는 6,331개의 유전자
+                                그룹이 확인되었다. 이것들은 극저온 시대에 약 6억
+                                5천만년 전에 살았던 단일 공통 조상으로부터
+                                발생했을 수 있다.
+                            </p>
+                            <br />
+                            <p>
+                                역사적으로 아리스토텔레스는 동물을 피가 있는
+                                동물과 피가 없는 동물로 나누었다. 칼 폰 린네는
+                                1758년에 그의 자연의 체계를 통해 동물에 대한
+                                최초의 계층적 생물학적 분류를 창안했으며,
+                                장바티스트 라마르크는 이를 1809년까지 14개
+                                문으로 확장했다. 1874년에 에른스트 헤켈은
+                                동물계를 다세포 후생동물(현재는 동물과 동의어)로
+                                나누었다. 단세포 유기체인 원생동물은 더 이상
+                                동물로 간주되지 않는다. 현대에는 동물의 생물학적
+                                분류가 분류군 간의 진화 관계를 입증하는 데
+                                효과적인 분자 계통발생학과 같은 고급 기술에
+                                의존한다.
+                            </p>
+                            <br />
+                            <p>
+                                인간은 식품(고기, 식용란, 유제품 포함),
+                                재료(가죽, 모피, 양모 등), 애완동물, 운송 및
+                                서비스를 위한 사역동물로 다른 많은 동물 종을
+                                활용한다. 최초의 가축화된 동물인 개는 말,
+                                비둘기, 맹금류와 마찬가지로 사냥, 보안, 전쟁에
+                                사용되었다. 다른 육상 및 수생 동물은 스포츠,
+                                트로피 또는 이익을 위해 사냥된다. 인간이 아닌
+                                동물은 인류 진화의 중요한 문화적 요소이기도
+                                하며, 초기부터 동굴 예술과 토템에 등장했으며
+                                신화, 종교, 예술, 문학, 문장, 정치 및 스포츠에
+                                자주 등장한다.
+                            </p>
+                        </section>
+                        <section></section>
+                    </div>
+                </main>
+                <aside>
+                    <ul class="sidebar-header">
+                        <li><strong>보이기</strong></li>
+                        <li>숨기기</li>
+                    </ul>
+                    <div class="sidebar-text-selection">
+                        <li>텍스트</li>
+                        <input type="radio" name="" id="" />
+                        <input type="radio" name="" id="" />
+                        <input type="radio" name="" id="" />
+                    </div>
+                    <div>
+                        <li>너비</li>
+                    </div>
+                    <ul class="sidebar-selection">
+                        <li>
+                            <a href=""><strong>처음 위치</strong></a>
+                        </li>
+                        <li><a href="">분류의 역사</a></li>
+                        <li><a href="">특징</a></li>
+                        <li><a href="">하위 분류</a></li>
+                        <li><a href="">계통 분류</a></li>
+                        <li><a href="">같이 보기</a></li>
+                        <li><a href="">각주</a></li>
+                        <li><a href="">외부 링크</a></li>
+                    </ul>
+                </aside>
+            </div>
+            <footer></footer>
+        </div>
+    </body>
+</html>
